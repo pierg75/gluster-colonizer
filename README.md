@@ -24,6 +24,14 @@ The nodes should have a management network that is separate from the storage/pro
 
 The nodes' management network interfaces are configured on a boot time with BOOTPROTO="none" in the ifcfg file, and a special systemd service enables a long-running dhcp client on the management interface.
 
+### Fedora installation
+
+This is based on a Fedora 28 installation.
+
+..* Install the following packages to take care of all Colonizer dependencies:
+
+`# sudo dnf -y install gdeploy python*-netaddr python*-pexpect`
+
 ### Deployment
 Once the above is all taken care of and the nodes are booted and have active ethernet connections on the management network (assumed in the example configs currently to be eth0 -- modify as needed), you can make a console connection to _any one_ of the Gluster nodes and begin the deployment with the `gluster-colonizer.py` script.
 
