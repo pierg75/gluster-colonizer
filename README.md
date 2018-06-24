@@ -28,7 +28,7 @@ The nodes' management network interfaces are configured on a boot time with BOOT
 
 This is based on a Fedora 28 installation.
 
-..* Install the following packages to take care of all Colonizer dependencies:
+* Install the following packages to take care of all Colonizer dependencies:
 
 `# sudo dnf -y install gdeploy python*-netaddr python*-pexpect`
 
