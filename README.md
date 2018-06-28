@@ -32,6 +32,10 @@ This is based on a Fedora 28 installation.
 
 `# sudo dnf -y install gdeploy python*-netaddr python*-pexpect`
 
+* Clone and install gluster-zeroconf repo:
+
+`# git clone https://github.com/gluster/gluster-zeroconf.git`
+
 * Clone the repository and you are ready to go:
 
 `# git clone https://github.com/gluster/gluster-colonizer.git`
