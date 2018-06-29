@@ -128,19 +128,23 @@ perf_output = "/root/g1-perf-results.out"
 # Let's configure the nodes settings based on the recommended values
 # Later we could allow for some specific settings in the flavour that
 # can override the recommended values
-with open("resources/settings/recommended_num_nodes.yml", "r") as r:
-    recoms = yaml.load(r.read())
-    flavor = oem_id['flavor']['voltype']
-    if flavor in recoms:
-        nodes_min = recoms[flavor]['min_number_nodes']
-        nodes_max = recoms[flavor]['max_number_nodes']
-        nodes_multiple = recoms[flavor]['mul_number_nodes']
-    else:
-        logger.error("The 'voltype' set is not one of those we have\
+try:
+    with open("resources/settings/recommended_num_nodes.yml", "r") as r:
+        recoms = yaml.load(r.read())
+        flavor = oem_id['flavor']['voltype']
+        if flavor in recoms:
+            nodes_min = recoms[flavor]['min_number_nodes']
+            nodes_max = recoms[flavor]['max_number_nodes']
+            nodes_multiple = recoms[flavor]['mul_number_nodes']
+        else:
+            logger.error("The 'voltype' set is not one of those we have\
                      recommendations")
-        logger.error(stdout)
-        logger.error(stderr)
-        sys.exit(1)
+            logger.error(stdout)
+            logger.error(stderr)
+            sys.exit(1)
+except:
+    print("There was an issue opening the recommendation file")
+    sys.exit(1)
 
 
 # Note: These are for NFS-Ganesha; CTDB should run on all nodes
