@@ -788,6 +788,14 @@ try:
             disperse = str('\'yes\'')
             disperse_count = str('\'4\'')
             redundancy_count = str('\'2\'')
+        elif str(oem_id['flavor']['voltype']) == "test":
+            # Set gdeploy values for disperse volume type
+            replica = 'no'
+            replica_count = str('\'0\'')
+            arbiter_count = str('\'0\'')
+            disperse = str('\'no\'')
+            disperse_count = str('\'0\'')
+            redundancy_count = str('\'0\'')
         else:
             abortSetup("Error: Invalid voltype detected in OEMID file")
     except:
