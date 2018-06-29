@@ -136,7 +136,8 @@ with open("resources/settings/recommended_num_nodes.yml", "r") as r:
         nodes_max = recoms[flavor]['max_number_nodes']
         nodes_multiple = recoms[flavor]['mul_number_nodes']
     else:
-        logger.error("The 'voltype' set is not one of those we have recommendations")
+        logger.error("The 'voltype' set is not one of those we have\
+                     recommendations")
         logger.error(stdout)
         logger.error(stderr)
         sys.exit(1)
